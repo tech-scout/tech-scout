@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import EventList from './EventList/EventList.jsx';
 import "./App.css";
 import Nav from "./Nav/Nav.js";
+import About from '/components/About/About'
 
 export default class App extends Component {
 
