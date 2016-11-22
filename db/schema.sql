@@ -8,11 +8,12 @@ CREATE TABLE user(
   id SERIAL PRIMARY KEY,
   username VARCHAR(64) NOT NULL,
   title VARCHAR(64) DEFAULT '',
-  password VARCHAR(64) NOT NULL
+  password VARCHAR(64) NOT NULL,
+
 );
 
 CREATE TABLE event(
   id SERIAL PRIMARY KEY,
   attendees INTEGER ARRAY,
   date_created TIMESTAMP NOT NULL DEFAULT NOW(),
-  event_date TIMESTAMP NOT NULL );
+  event_date TIMESTAMP NOT NULL )
