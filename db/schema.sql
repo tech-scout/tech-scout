@@ -15,4 +15,4 @@ CREATE TABLE event(
   id SERIAL PRIMARY KEY,
   attendees INTEGER ARRAY,
   date_created TIMESTAMP NOT NULL DEFAULT NOW(),
-  event_date TIMESTAMP NOT NULL )
+  event_date TIMESTAMP NOT NULL );
