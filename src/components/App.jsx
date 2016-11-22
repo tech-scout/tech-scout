@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import EventList from './EventList/EventList.jsx';
+import About from '/components/About/About'
+
 
 export default class App extends Component {
 
