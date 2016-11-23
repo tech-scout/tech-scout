@@ -13,7 +13,7 @@ const db = pg(config);
 module.exports = {
 
   /* GET /events */
-  getEvents(req, res, next) {
+  getAllEvents(req, res, next) {
     db.any('SELECT * from events;')
       .then((events) => {
         res.rows = events;
@@ -21,6 +21,10 @@ module.exports = {
       })
       .catch(error => next(error));
   },
+
+  getEventsForUser(req, res, next) {
+    db.any('SELECT * from events LEFT JOIN attendance ')
+  }
 
   /* POST /events */
   /* creates a new event, returns the newly created record */
