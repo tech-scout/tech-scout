@@ -47,14 +47,21 @@ Component {
   render() {
     return (
       <div className="event_list">
-        <Nav
-          add={this.addButton.bind(this)}
+
+      <Nav
+        add={this.addButton.bind(this)}
         />
+<<<<<<< HEAD
         // <EventList
         //   collection={this.state.events}
+=======
+        <EventList
+        collection={this.state.events}
+>>>>>>> 9c2da89108b952cab66b4df001c8139055a73167
         />
         <h1>Add Event Form</h1>
-        <EventForm addEvent={this.addEvent.bind(this)} />
+        <EventForm addEvent={this.addEvent.bind(this)}
+        />
       </div>
     );
   }

@@ -13,8 +13,12 @@ const generateEvents = collection =>
 
 const EventList = props => (
   <div className="event_list">
-    {generateList(props.collection)}
+    {generateEvents(props.collection)}
   </div>
 );
+<<<<<<< HEAD
 
 export EventList
+=======
+export default EventList;
+>>>>>>> 9c2da89108b952cab66b4df001c8139055a73167
