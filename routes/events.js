@@ -1,5 +1,5 @@
 const events = require('express').Router();
-// const db = require('../models/event');
+const db = require('../models/events');
 
 /* convenience method for sending */
 const sendJSONresp = (req, res) => res.json(res.rows);
