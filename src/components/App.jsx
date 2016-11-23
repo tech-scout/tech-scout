@@ -14,28 +14,28 @@ Component {
       events: {},
     };
 
-    // this.addEvent = this.addEvent.bind(this);
+    this.addEvent = this.addEvent.bind(this);
   }
 
-  // addEvent(title, desc, url) {
-  //   fetch('/events', {
-  //     method: 'post',
-  //     headers: {
-  //       "Content-type": "application/json; charset=UTF-8"
-  //     },
-  //     body: JSON.stringify({title, desc, url})
-  //   })
-  //     .then(r => r.json())
-  //     .then((newEvent) => {
-  //       // clone existing state
-  //       const newState = {...this.state.events};
-  //       newState[newEvent.id] = newEvent;
-  //       this.setState({events: newState});
-  //     })
-  //     .catch((error) => {
-  //       throw error;
-  //     });
-  // }
+  addEvent(title, desc, url) {
+    fetch('/events', {
+      method: 'post',
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      },
+      body: JSON.stringify({title, desc, url})
+    })
+      .then(r => r.json())
+      .then((newEvent) => {
+        // clone existing state
+        const newState = {...this.state.events};
+        newState[newEvent.id] = newEvent;
+        this.setState({events: newState});
+      })
+      .catch((error) => {
+        throw error;
+      });
+  }
 
   addButton(){
      let x = document.getElementById('header');
@@ -51,11 +51,13 @@ Component {
       <Nav
         add={this.addButton.bind(this)}
         />
-        <EventList />
+        <EventList
+        collection={this.state.events}
+        />
         <h1>Add Event Form</h1>
-        <EventForm  />
+        <EventForm addEvent={this.addEvent.bind(this)}
+        />
       </div>
     );
   }
 }
-//        addEvent={this.addEvent.bind(this)}
