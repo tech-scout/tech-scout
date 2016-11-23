@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import EventList from './EventList/EventList.jsx';
 import "./App.css";
 import Nav from "./Nav/Nav.js";
-import About from '/components/About/About'
+import About from './About/About.jsx'
 
 export default class App extends Component {
 
@@ -16,11 +16,11 @@ export default class App extends Component {
   render() {
     return (
       <div className="event_list">
-     <EventList />
-      <div>
-        <Nav
+      <Nav
         add={this.addButton.bind(this)}
         />
+      <EventList />
+
       </div>
       );
   }

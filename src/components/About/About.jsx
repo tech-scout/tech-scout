@@ -7,6 +7,7 @@ const About = props => {
       <h2>{`${props.name} (${props.title})`}</h2>
       <img src={props.profile_pic} />
     </div>
+    )
 }
 
 export default About;
