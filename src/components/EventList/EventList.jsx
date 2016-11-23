@@ -16,3 +16,5 @@ const EventList = props => (
     {generateList(props.collection)}
   </div>
 );
+
+export EventList

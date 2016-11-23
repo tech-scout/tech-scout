@@ -50,8 +50,8 @@ Component {
         <Nav
           add={this.addButton.bind(this)}
         />
-        <EventList
-          collection={this.state.events}
+        // <EventList
+        //   collection={this.state.events}
         />
         <h1>Add Event Form</h1>
         <EventForm addEvent={this.addEvent.bind(this)} />
