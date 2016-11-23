@@ -16,21 +16,10 @@ export default class App extends Component {
   render() {
     return (
       <div className="event_list">
-<<<<<<< HEAD
       <Nav
         add={this.addButton.bind(this)}
         />
-      <EventList />
-
-=======
-
         <EventList />
-          <div>
-            <Nav
-              add={this.addButton.bind(this)}
-            />
-          </div>
->>>>>>> 03f11eb5d7265d3233570f8457828d65ff2e95af
       </div>
     );
   }
