@@ -13,9 +13,9 @@ const sendJSONresp = (req, res) => res.json(res.rows);
 
 // events
 // this is the most general route, so it goes last
-// events.route('/')
-//   .get(db.getEvents, sendJSONresp)
-//   .post(db.addEvent, sendJSONresp);
+events.route('/')
+  .get(db.getAllEvents, sendJSONresp)
+  .post(db.addEvent, sendJSONresp);
 
 // export this so it is available to server.js
 module.exports = events;
