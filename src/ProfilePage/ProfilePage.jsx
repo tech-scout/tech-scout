@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import EventList from './components/EventList/EventList.jsx';
+import EventList from '../components/EventList/EventList.jsx';
 import "./ProfilePage.css";
-import Nav from "./components/Nav/Nav.js";
-import About from './components/About/About.jsx';
-import EventForm from './components/EventForm/EventForm.jsx';
-import Footer from './components/Footer/Footer.jsx';
+import Nav from "../components/Nav/Nav.jsx";
+import About from '../components/About/About.jsx';
+import EventForm from '../components/EventForm/EventForm.jsx';
+import Footer from '../components/Footer/Footer.jsx';
 
 export default class ProfilePage extends
 Component {
@@ -53,6 +53,7 @@ Component {
       <Nav
         add={this.addButton.bind(this)}
         />
+        <a href="#">Signout</a>
        <EventList
         collection={this.state.events}
         />

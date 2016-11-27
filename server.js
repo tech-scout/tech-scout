@@ -10,6 +10,10 @@ const PORT    = process.argv[2] || process.env.port || 3000;
 
 app.use(logger('dev'));
 
+const history = require('connect-history-api-fallback');
+app.use(history());
+
+
 app.use(bodyParser.json());
 
 app.use('/events', require('./routes/events'));
