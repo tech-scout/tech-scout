@@ -1,4 +1,4 @@
-const signup = require('express').Router();
+const users = require('express').Router();
 const db = require('../models/users');
 const auth = require('../models/auth');
 
@@ -14,11 +14,9 @@ const sendJSONresp = (req, res) => res.json({res.token, res.rows});
 
 // events
 // this is the most general route, so it goes last
-signup.route('/')
-
-  .get(auth.createToken, , sendJSONresp)
-
-  .post(db.addEvent, sendJSONresp);
+users.route('/')
+  .post(db.createUser, auth.createToken, sendJSONresp)
+  .get(db.getUser, auth.checkPassword, auth.createToken, sendJSONresp);
 
 // export this so it is available to server.js
-module.exports = signup;
+module.exports = users;
