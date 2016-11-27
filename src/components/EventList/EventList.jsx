@@ -13,6 +13,7 @@ const generateEvents = collection =>
 
 const EventList = props => (
   <div className="event_list">
+    <h1>showing list of events</h1>
     {generateEvents(props.collection)}
   </div>
 );

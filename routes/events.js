@@ -3,7 +3,10 @@ const db = require('../models/events');
 const auth = require('../models/auth');
 
 /* convenience method for sending */
-const sendJSONresp = (req, res) => res.json(res.rows);
+const sendJSONresp = (req, res) => {
+console.log('sendJSONresp is executing');
+  res.json(res.rows)
+};
 
 // events/:id
 // this is more specific than the /events, so it goes above
