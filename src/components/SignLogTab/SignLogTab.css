@@ -2,15 +2,30 @@
   display: inline-block;
 }
 .signup{
-  width: 200px;
+  padding: 10px;
+  font-size: 30px;
+  width: 100px;
   display: inline-block;
   color: pink;
 }
+.signup:hover {
+  cursor: pointer;
+}
 .login{
-  width: 200px;
+  padding: 10px;
+  font-size: 30px;
+  width: 100px;
   display: inline-block;
 }
-
+.login:hover {
+  cursor: pointer;
+}
 #try {
   color:pink;
+}
+.sep {
+  display: inline-block;
+  height: 28px;
+  width: 1px;
+  background-color: black;
 }

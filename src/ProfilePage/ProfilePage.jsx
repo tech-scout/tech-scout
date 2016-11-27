@@ -40,20 +40,15 @@ export default class ProfilePage extends Component {
       });
   }
 
-  addButton(){
-     let x = document.getElementById('header');
-     let y = document.createElement('button');
-     y.innerText='profile';
-     x.append(y);
-  }
-
   render() {
     return (
       <div className="ProfilePage">
-      <Nav
-        add={this.addButton.bind(this)}
-        />
-        <a href="#">Signout</a>
+
+      <Nav/>
+        <div id="a">
+          <a href="#">Sign Out</a>
+        </div>
+
        <EventList
         collection={this.state.events}
         />
@@ -65,3 +60,4 @@ export default class ProfilePage extends Component {
     );
   }
 }
+// add={this.addButton.bind(this)}

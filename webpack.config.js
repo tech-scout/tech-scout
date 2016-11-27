@@ -34,36 +34,36 @@ module.exports = {
    })
  ],
 
- module : {
-   include: path.join(__dirname, 'src'),
-   loaders: [
-     {
+  module : {
+    include: path.join(__dirname, 'src'),
+    loaders: [
+           {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
     },
-     {
-       test: /\.svg$/,
-       loader: 'file-loader?name=/img/[name].[hash:base64:5].[ext]'
-     },
-     {
-       test: /\.gif$/,
-       loader: 'file-loader?name=/img/[name].[hash:base64:5].[ext]'
-     },
-     {
-       test: /\.png$/,
-       loader: 'file-loader?name=/img/[name].[hash:base64:5].[ext]'
-     },
-     { test: /\.jpg$/,
-       loader: 'file-loader?name=/img/[name].[hash:base64:5].[ext]'
-     },
-     {
-       test: /\.(js|jsx)$/,
-       loader: 'babel'
-     },
-     {
-       test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,
-       loader: 'file-loader?name=/fonts/[name].[ext]'
-     }
-   ]
- }
+      {
+        test: /\.svg$/,
+        loader: 'file-loader?name=/img/[name].[hash:base64:5].[ext]'
+      },
+      {
+        test: /\.gif$/,
+        loader: 'file-loader?name=/img/[name].[hash:base64:5].[ext]'
+      },
+      {
+        test: /\.png$/,
+        loader: 'file-loader?name=/img/[name].[hash:base64:5].[ext]'
+      },
+      { test: /\.jpg$/,
+        loader: 'file-loader?name=/img/[name].[hash:base64:5].[ext]'
+      },
+      {
+        test: /\.(js|jsx)$/,
+        loader: 'babel'
+      },
+      {
+        test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader?name=/fonts/[name].[ext]'
+      }
+    ]
+  }
 };

@@ -8,15 +8,22 @@ export default class SignLogTab extends Component {
     super();
 
     this.state = {
-      login: true,
+      login: false,
     };
 
-    this.handleTabClick = this.handleTabClick.bind(this);
+    this.handleTabClickSign = this.handleTabClickSign.bind(this);
+    this.handleTabClickLog = this.handleTabClickLog.bind(this);
     this.loginState = this.loginState;
   }
 
-  handleTabClick(e) {
-    this.setState({login: !(this.state.login)})
+  handleTabClickSign(e) {
+    this.setState({login: false
+  })
+  }
+
+   handleTabClickLog(e) {
+    this.setState({login: true
+  })
   }
 
   loginState() {
@@ -27,12 +34,12 @@ export default class SignLogTab extends Component {
     return (
       <div>
       <div className="loginTabs">
-        <div className="signup" onClick={this.handleTabClick}>Sign up</div>
-        <div className="login" onClick={this.handleTabClick}> Log in</div>
+        <div className="signup" onClick={this.handleTabClickSign}>Sign up</div>
+        <div className="sep"></div>
+        <div className="login" onClick={this.handleTabClickLog}> Log in</div>
 
         {this.loginState()}
       </div>
-      <p id="try">Try</p>
       </div>
     );
   }
