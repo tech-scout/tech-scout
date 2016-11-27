@@ -62,6 +62,60 @@ module.exports = {
     db.one(`SELECT * FROM users WHERE id = ${req.body.user.id}`)
   },
 
+  getFollowers(req, res, next) {
+    db.any(`SELECT * from users LEFT JOIN following ON following.follower = users.id WHERE following.followee = ${req.body.user.id}`)
+      .then((users) => {
+        res.rows = users;
+        next();
+      })
+      .catch(error => next(error));
+  },
+
+  getFollowing(req, res, next) {
+    db.any(`SELECT * from users LEFT JOIN following ON following.followee = users.id WHERE following.follower = ${req.body.user.id}`)
+      .then((users) => {
+        res.rows = users;
+        next();
+      })
+      .catch(error => next(error));
+  },
+
+  getAllInterests(req, res, next) {
+    db.any(`SELECT * from interests`)
+      .then((interests) => {
+        res.rows = interests;
+        next();
+      })
+      .catch(error => next(error));
+  },
+
+  getUserInterests(req, res, next) {
+    db.any(`SELECT * from interests LEFT JOIN userInterestEdge ON userInterestEdge.interest = interests.id WHERE userInterestEdge.user_id = ${req.body.user.id}`)
+      .then((interests) => {
+        res.rows = interests;
+        next();
+      })
+      .catch(error => next(error));
+  },
+
+  getUsersForInterest(req, res, next) {
+    db.any(`SELECT * from users LEFT JOIN userInterestEdge ON userInterestEdge.user_id = users.id WHERE userInterestEdge.interest = ${req.body.interest.id}`)
+      .then((users) => {
+        res.rows = users;
+        next();
+      })
+      .catch(error => next(error));
+  },
+
+  getInterestsForEvent(req, res, next) {
+    db.any(`SELECT * FROM interests LEFT JOIN eventInterestEdge ON eventInterestEdge.interest = interests.id WHERE eventInterestEdge.event = ${req.body.event.id}`)
+      .then((interests) => {
+        res.rows = users;
+        next();
+      })
+      .catch(error => next(error));
+  },
+
   /* POST /events */
   /* creates a new event, returns the newly created record */
   addEvent(req, res, next) {
@@ -73,9 +127,9 @@ module.exports = {
       .then((event) => {
         console.log('ADDED TASK SUCCESSFUL');
         res.rows = event;
+        next();
       })
       .catch(error => next(error));
-      next();
   },
 
   /* PUT /events/:eventID */

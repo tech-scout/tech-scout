@@ -12,7 +12,7 @@ CREATE TABLE users(
   username VARCHAR(64) NOT NULL,
   title VARCHAR(64) DEFAULT '',
   password VARCHAR(64) NOT NULL,
-  img_url VARCHAR(255)
+  img_url VARCHAR(255) DEFAULT 'http://www.barebooks.com/wp-content/uploads/2013/10/Round-Game-Board-Blank.gif'
 );
 
 CREATE TABLE events(
@@ -20,10 +20,10 @@ CREATE TABLE events(
   name VARCHAR(64) NOT NULL,
   date_created TIMESTAMP NOT NULL DEFAULT NOW(),
   description text NOT NULL,
-  event_date TIMESTAMP ,
+  event_date TIMESTAMP,
   location VARCHAR(64),
   creator INTEGER REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
-  img_url VARCHAR(255)
+  img_url VARCHAR(255) DEFAULT 'http://www.barebooks.com/wp-content/uploads/2013/10/Round-Game-Board-Blank.gif'
   );
 
 CREATE TABLE interests(
