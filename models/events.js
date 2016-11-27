@@ -73,9 +73,9 @@ module.exports = {
       .then((event) => {
         console.log('ADDED TASK SUCCESSFUL');
         res.rows = event;
-        next();
       })
       .catch(error => next(error));
+      next();
   },
 
   /* PUT /events/:eventID */
