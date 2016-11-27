@@ -1,0 +1,16 @@
+.loginTabs{
+  display: inline-block;
+}
+.signup{
+  width: 200px;
+  display: inline-block;
+  color: pink;
+}
+.login{
+  width: 200px;
+  display: inline-block;
+}
+
+#try {
+  color:pink;
+}
