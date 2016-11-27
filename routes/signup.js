@@ -1,9 +1,9 @@
-const events = require('express').Router();
-const db = require('../models/events');
+const signup = require('express').Router();
+const db = require('../models/users');
 const auth = require('../models/auth');
 
 /* convenience method for sending */
-const sendJSONresp = (req, res) => res.json(res.rows);
+const sendJSONresp = (req, res) => res.json({res.token, res.rows});
 
 // events/:id
 // this is more specific than the /events, so it goes above
@@ -14,11 +14,11 @@ const sendJSONresp = (req, res) => res.json(res.rows);
 
 // events
 // this is the most general route, so it goes last
-events.route('/')
+signup.route('/')
 
-  .get(auth.authorize, db.getAllEvents, sendJSONresp)
+  .get(auth.createToken, , sendJSONresp)
 
   .post(db.addEvent, sendJSONresp);
 
 // export this so it is available to server.js
-module.exports = events;
+module.exports = signup;
