@@ -17,6 +17,8 @@ console.log('sendJSONresp is executing');
 
 // events
 // this is the most general route, so it goes last
+events.route('/all')
+  .get(db.getAllEvents, sendJSONresp);
 events.route('/')
 
   .get(auth.authorize, db.getAllEvents, sendJSONresp)
