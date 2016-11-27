@@ -1,1 +1,19 @@
 
+h1{
+  text-align: center;
+}
+#a{
+  text-align: center;
+}
+.eventFormWrapper{
+text-align: center;
+}
+label{
+  position: absolute;
+  left: 40%;
+}
+/*input{
+  position: absolute;
+  left: 50%;
+}
+*/
