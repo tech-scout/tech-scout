@@ -7,8 +7,7 @@ import About from '../components/About/About.jsx';
 import EventForm from '../components/EventForm/EventForm.jsx';
 import Footer from '../components/Footer/Footer.jsx';
 
-export default class ProfilePage extends
-Component {
+export default class ProfilePage extends Component {
   constructor(props) {
     super();
 
@@ -52,10 +51,6 @@ Component {
   render() {
     return (
       <div className="ProfilePage">
-
-      {/* Create link to lead to specified react route */}
-      <Link to="eventform">Visit eventform route</Link>
-
       <Nav
         add={this.addButton.bind(this)}
         />
