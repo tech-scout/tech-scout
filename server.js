@@ -19,6 +19,8 @@ app.use(bodyParser.json());
 
 app.use('/events', require('./routes/events'));
 
+app.use('/signup', require('./routes/signup'));
+
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.listen(PORT, () => console.log('server is up and running on port', PORT));

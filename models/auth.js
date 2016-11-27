@@ -13,6 +13,15 @@ const createToken = (req, res, next) => {
   next();
 }
 
+const checkPassword = (req, res, next) => {
+  if(req.body.user.password === res.rows.password) {
+    next();
+  }
+  else {
+    console.log('WRONG INFO');
+  }
+}
+
 const authorize = (req, res, next) => {
   const bearerToken = req.body.bearerToken;
   res.user = decoded(bearerToken);
@@ -20,6 +29,7 @@ const authorize = (req, res, next) => {
 }
 
 module.exports = {
+  checkPassword,
   createToken,
-  authorize
+  authorize,
 }
