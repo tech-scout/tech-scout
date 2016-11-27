@@ -42,19 +42,14 @@ Component {
       });
   }
 
-  addButton(){
-     let x = document.getElementById('header');
-     let y = document.createElement('button');
-     y.innerText='profile';
-     x.append(y);
-  }
-
   render() {
     return (
       <div className="ProfilePage">
 
       <Nav/>
-        <a href="#">Signout</a>
+      <div id="a">
+        <a href="#">Sign Out</a>
+      </div>
        <EventList
         collection={this.state.events}
         />
