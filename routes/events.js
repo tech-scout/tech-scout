@@ -20,8 +20,7 @@ console.log('sendJSONresp is executing');
 events.route('/')
 
   .get(auth.authorize, db.getAllEvents, sendJSONresp)
-
-  .post(db.addEvent, sendJSONresp);
+  .post(auth.authorize, db.addEvent, sendJSONresp);
 
 // export this so it is available to server.js
 module.exports = events;
