@@ -53,12 +53,7 @@ Component {
     return (
       <div className="ProfilePage">
 
-      {/* Create link to lead to specified react route */}
-      <Link to="eventform">Visit eventform route</Link>
-
-      <Nav
-        add={this.addButton.bind(this)}
-        />
+      <Nav/>
         <a href="#">Signout</a>
        <EventList
         collection={this.state.events}
@@ -71,3 +66,4 @@ Component {
     );
   }
 }
+// add={this.addButton.bind(this)}
