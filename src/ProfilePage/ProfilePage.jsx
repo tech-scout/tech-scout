@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD:src/components/App.jsx
 import EventList from './EventList/EventList.jsx';
 import "./App.css";
 import Nav from "./Nav/Nav.js";
 import About from './About/About.jsx';
 import EventForm from './EventForm/EventForm.jsx';
 import { Link } from 'react-router';
+=======
+import EventList from '../components/EventList/EventList.jsx';
+import "./ProfilePage.css";
+import Nav from "../components/Nav/Nav.jsx";
+import About from '../components/About/About.jsx';
+import EventForm from '../components/EventForm/EventForm.jsx';
+import Footer from '../components/Footer/Footer.jsx';
+>>>>>>> imaninyasia-imani:src/ProfilePage/ProfilePage.jsx
 
-export default class App extends
+export default class ProfilePage extends
 Component {
   constructor(props) {
     super();
@@ -50,7 +59,7 @@ Component {
 
   render() {
     return (
-      <div className="event_list">
+      <div className="ProfilePage">
 
       {/* Create link to lead to specified react route */}
       <Link to="eventform">Visit eventform route</Link>
@@ -58,12 +67,14 @@ Component {
       <Nav
         add={this.addButton.bind(this)}
         />
-        <EventList
+        <a href="#">Signout</a>
+       <EventList
         collection={this.state.events}
         />
         <h1>Add Event Form</h1>
         <EventForm addEvent={this.addEvent.bind(this)}
         />
+        <Footer />
       </div>
     );
   }
