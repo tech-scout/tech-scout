@@ -24,9 +24,11 @@ Component {
         "Content-type": "application/json; charset=UTF-8"
       },
       body: JSON.stringify({title, desc, url})
+
     })
       .then(r => r.json())
       .then((newEvent) => {
+        console.log(newEvent);
         // clone existing state
         const newState = {...this.state.events};
         newState[newEvent.id] = newEvent;
