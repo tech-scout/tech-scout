@@ -13,7 +13,7 @@ const db = pg(config);
 module.exports = {
 
   /* GET /events */
-  getEvents(req, res, next) {
+  getAllEvents(req, res, next) {
     db.any('SELECT * from events;')
       .then((events) => {
         res.rows = events;
@@ -22,12 +22,52 @@ module.exports = {
       .catch(error => next(error));
   },
 
+  getEvent(req, res, next) {
+    db.one(`SELECT * from events WHERE id = ${req.body.event.id}`)
+      .then((event) => {
+        res.rows = event;
+        next();
+      })
+      .catch(error => next(error));
+  },
+
+  getEventsForInterest(req, res, next) {
+    db.any(`SELECT * from events LEFT JOIN eventInterestEdge ON events.id = eventInterestEdge.event WHERE eventInterestEdge.interest = ${req.body.interest}`)
+      .then((events) => {
+        res.rows = events;
+        next();
+      })
+      .catch(error => next(error));
+  },
+
+  getEventsForUser(req, res, next) {
+    db.any(`SELECT * from events LEFT JOIN attendance ON attendance.event = events.id WHERE attendance.user = ${req.body.user.id}`)
+      .then((events) => {
+        res.rows = events;
+        next();
+      })
+      .catch(error => next(error));
+  },
+
+  getUsersForEvent(req, res, next) {
+    db.any(`SELECT * from users LEFT JOIN attendance ON attendance.user = users.id WHERE attendance.event = ${req.body.event.id}`)
+      .then((users) => {
+        res.rows = users;
+        next();
+      })
+      .catch(error => next(error));
+  },
+
+  getUser(req, res, next) {
+    db.one(`SELECT * FROM users WHERE id = ${req.body.user.id}`)
+  },
+
   /* POST /events */
   /* creates a new event, returns the newly created record */
   addEvent(req, res, next) {
     console.log('===addEvent===',req.body);
     db.one(
-      'INSERT INTO events (name, description, url) VALUES ($/name/, $/desc/, $/url/) returning *;',
+      'INSERT INTO events (name, description, img_url) VALUES ($/title/, $/desc/, $/url/) returning *;',
       req.body
       )
       .then((event) => {

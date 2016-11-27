@@ -18,8 +18,8 @@ Component {
   }
 
   addEvent(title, desc, url) {
-    fetch('/events', {
-      method: 'post',
+    fetch('./events', {
+      method: 'POST',
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       },
@@ -33,6 +33,7 @@ Component {
         const newState = {...this.state.events};
         newState[newEvent.id] = newEvent;
         this.setState({events: newState});
+        next();
       })
       .catch((error) => {
         throw error;

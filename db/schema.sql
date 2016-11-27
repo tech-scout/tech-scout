@@ -19,9 +19,10 @@ CREATE TABLE events(
   id SERIAL PRIMARY KEY,
   name VARCHAR(64) NOT NULL,
   date_created TIMESTAMP NOT NULL DEFAULT NOW(),
-  event_date TIMESTAMP NOT NULL,
-  location VARCHAR(64) NOT NULL,
-  creator INTEGER NOT NULL REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+  description text NOT NULL,
+  event_date TIMESTAMP ,
+  location VARCHAR(64),
+  creator INTEGER REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
   img_url VARCHAR(255)
   );
 
@@ -30,9 +31,9 @@ CREATE TABLE interests(
   name VARCHAR(32) NOT NULL);
 
 CREATE TABLE attendence(
-  user INTEGER NOT NULL REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
-  event INTEGER NOT NULL REFERENCES events(id) ON UPDATE CASCADE ON DELETE CASCADE
-  PRIMARY KEY(user, event));
+  user_id INTEGER NOT NULL REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+  event INTEGER NOT NULL REFERENCES events(id) ON UPDATE CASCADE ON DELETE CASCADE,
+  PRIMARY KEY(user_id, event));
 
 CREATE TABLE following(
   follower INTEGER NOT NULL REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
@@ -42,18 +43,16 @@ CREATE INDEX follower_idx ON following(follower);
 CREATE INDEX followee_idx ON following(followee);
 
 CREATE TABLE userInterestEdge(
-  user INTEGER NOT NULL REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
   interest INTEGER NOT NULL REFERENCES interests(id) ON UPDATE CASCADE ON DELETE CASCADE,
-  PRIMARY KEY(user, interest));
-CREATE INDEX user_idx ON userInterestEdge (user);
-CREATE INDEX interest_idx ON userInterestEdge (interest);
+  PRIMARY KEY(user_id, interest));
+
 
 CREATE TABLE eventInterestEdge(
   event INTEGER NOT NULL REFERENCES events(id) ON UPDATE CASCADE ON DELETE CASCADE,
   interest INTEGER NOT NULL REFERENCES interests(id) ON UPDATE CASCADE ON DELETE CASCADE,
   PRIMARY KEY(event, interest));
-CREATE INDEX event_idx ON eventInterestEdge (event);
-CREATE INDEX interest_idx ON eventInterestEdge (interest);
+
 
 
 COMMIT;
