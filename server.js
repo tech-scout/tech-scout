@@ -8,6 +8,10 @@ const bodyParser = require('body-parser');
 const app     = express();
 const PORT    = process.argv[2] || process.env.port || 3000;
 
+// using history api fallback library to access url paths directly
+const history = require('connect-history-api-fallback');
+app.use(history());
+
 app.use(logger('dev'));
 
 app.use(bodyParser.json());
