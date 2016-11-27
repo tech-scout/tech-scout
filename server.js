@@ -14,6 +14,10 @@ app.use(history());
 
 app.use(logger('dev'));
 
+const history = require('connect-history-api-fallback');
+app.use(history());
+
+
 app.use(bodyParser.json());
 
 app.use('/events', require('./routes/events'));
