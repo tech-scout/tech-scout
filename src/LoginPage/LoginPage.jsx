@@ -7,7 +7,7 @@ import Footer from '../components/Footer/Footer.jsx';
 export default class LoginPage extends Component {
   render(){
     return(
-      <div class="LoginPage">
+      <div className="LoginPage">
       <Nav />
       <a href="#">Signup</a> <a href="#">Login</a>
       <Form_Sign />
