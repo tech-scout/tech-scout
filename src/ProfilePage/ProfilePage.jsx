@@ -7,8 +7,7 @@ import About from '../components/About/About.jsx';
 import EventForm from '../components/EventForm/EventForm.jsx';
 import Footer from '../components/Footer/Footer.jsx';
 
-export default class ProfilePage extends
-Component {
+export default class ProfilePage extends Component {
   constructor(props) {
     super();
 
@@ -47,9 +46,10 @@ Component {
       <div className="ProfilePage">
 
       <Nav/>
-      <div id="a">
-        <a href="#">Sign Out</a>
-      </div>
+        <div id="a">
+          <a href="#">Sign Out</a>
+        </div>
+
        <EventList
         collection={this.state.events}
         />
