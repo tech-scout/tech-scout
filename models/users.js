@@ -24,6 +24,11 @@ module.exports = {
 
   getUser(req, res, next) {
     db.one(`SELECT * FROM users WHERE id = ${req.body.user.id}`)
+      .then((user) => {
+        res.rows = user;
+        next();
+      })
+      .catch(error => next(error));
   },
 
   getFollowers(req, res, next) {
@@ -54,6 +59,11 @@ module.exports = {
   },
 
   createUser(req, res, next) {
-    db.any(`INSERT INTO `)
-  }
+    db.one(`INSERT INTO users (username, password, title, img_url) VALUES ($/username/, $/password/, $/title/, $/img_url/) returning *`, req.body)
+      .then((user) => {
+        res.rows = user;
+        next();
+      })
+      .catch(error => next(error));
+  },
 }
