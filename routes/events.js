@@ -15,8 +15,6 @@ const sendJSONresp = (req, res) => res.json(res.rows);
 // this is the most general route, so it goes last
 events.route('/')
 
-  .get(db.getEvents, sendJSONresp)
-
   .get(db.getAllEvents, sendJSONresp)
 
   .post(db.addEvent, sendJSONresp);

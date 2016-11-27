@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD:src/components/App.jsx
-import EventList from './EventList/EventList.jsx';
-import "./App.css";
-import Nav from "./Nav/Nav.js";
-import About from './About/About.jsx';
-import EventForm from './EventForm/EventForm.jsx';
 import { Link } from 'react-router';
-=======
 import EventList from '../components/EventList/EventList.jsx';
 import "./ProfilePage.css";
 import Nav from "../components/Nav/Nav.jsx";
 import About from '../components/About/About.jsx';
 import EventForm from '../components/EventForm/EventForm.jsx';
 import Footer from '../components/Footer/Footer.jsx';
->>>>>>> imaninyasia-imani:src/ProfilePage/ProfilePage.jsx
 
 export default class ProfilePage extends
 Component {
