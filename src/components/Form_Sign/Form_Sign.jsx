@@ -5,7 +5,7 @@ export default class Form_Sign extends Component {
   render() {
     return(
       <div className="signup_form">
-        <form action="/app/ProfilePage" method="POST">
+        <form action="/app/profile" method="POST">
           <input type="text" name="username" placeholder="username"/>
           <input type="text" name="title" placeholder="professional title"/>
           <input type="text" name="img_url" placeholder="url for profile picture"/>

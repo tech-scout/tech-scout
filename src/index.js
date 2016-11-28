@@ -9,6 +9,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path='/app' component={LandingPage}></Route>
-    <Route path='/app/Signup_Login' component={LoginPage}></Route>
-    <Route path='/app/ProfilePage' component={ProfilePage}></Route>
+    <Route path='/app/signup_login' component={LoginPage}></Route>
+    <Route path='/app/profile' component={ProfilePage}></Route>
+    <Route path='/app/dashboard' component={DashboardPage}></Route>
 </Router>, document.querySelector('#root-container'));
