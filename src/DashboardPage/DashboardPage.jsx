@@ -52,7 +52,7 @@ export default class DashboardPage extends Component {
           <a href="#">Sign Out</a>
         </div>
 
-        <div className="users_events"> user events
+        <div className="users_events">
           <EventList
             events={this.state.events}
           />

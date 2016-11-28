@@ -7,6 +7,10 @@ const Event = props => (
     <p>Description:  {props.description}</p>
     <p>Date Created:  {props.date_created}</p>
     <p>Image Url:  {props.img_url}</p>
+
+    {/* need to customize editing options for only creators of event */}
+    <button>Delete Event!</button>
+    <button>Update Event!</button>
   </div>
 );
 

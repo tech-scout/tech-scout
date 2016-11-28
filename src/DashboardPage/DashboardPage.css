@@ -45,7 +45,12 @@ h1 {
   left: 50%;
   top: 50%;
 }
-button{
+
+button {
   position: absolute;
   top: 70%;
+}
+
+.event_item button {
+  position: relative;
 }

@@ -15,6 +15,7 @@ export default class AjaxAdapter{
   }
 
   static addEvent(newEvent) {
+// console.log('newevent..', newEvent);
     return fetch('/api/events', {
       method:  'POST',
       headers: {
