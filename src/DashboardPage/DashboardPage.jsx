@@ -31,10 +31,8 @@ console.log('this.state.events...', this.state.events);
     });
   }
 
-
-
-  addEvent(name, desc) {
-    AjaxAdapter.addEvent({ name, description, date_created, img_url })
+  addEvent(name, desc, img_url) {
+    AjaxAdapter.addEvent({ name, desc, img_url })
     .then((newEvent) => {
       // clone existing state
       const newState = { ...this.state.events };
@@ -44,33 +42,6 @@ console.log('this.state.events...', this.state.events);
     .catch((error) => {
       throw error;
     });
-  }
-
-  addEvent(title, desc, url) {
-// console.log('title....', title);
-    fetch('./events', {
-      method: 'POST',
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      },
-      body: JSON.stringify({title, desc, url})
-// console.log('body....', body);
-    })
-      .then((r) => {
-        console.log('response (r) is: ', r);
-        r.json();
-      })
-      .then((newEvent) => {
-// console.log('newEvent....', newEvent);
-        // clone existing state
-        const newState = {...this.state.events};
-        newState[newEvent.id] = newEvent;
-        this.setState({events: newState});
-        next();
-      })
-      .catch((error) => {
-        throw error;
-      });
   }
 
   render() {

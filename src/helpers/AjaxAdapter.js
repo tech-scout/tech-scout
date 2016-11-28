@@ -14,7 +14,9 @@ export default class AjaxAdapter{
     .then(data => indexByKeyName(data, 'id'));
   }
 
-  static addEvent(newTask) {
+  static addEvent(newEvent) {
+// console.log('newEvent...', newEvent)
+  console.log(newEvent);
     return fetch('/api/events', {
       method:  'POST',
       headers: {
