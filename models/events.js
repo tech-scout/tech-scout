@@ -1,14 +1,4 @@
-const pg = require('pg-promise')({/* OPTIONAL Initialization Options */});
-
-const config = {
-  host:       process.env.DB_HOST,
-  port:       process.env.DB_PORT,
-  database:   process.env.DB_NAME,
-  user:       process.env.DB_USER,
-  password:   process.env.DB_PASS,
-};
-
-const db = pg(config);
+const db = require('../db/config');
 
 module.exports = {
 
@@ -87,6 +77,16 @@ module.exports = {
       )
       .then((event) => {
         console.log('ADDED TASK SUCCESSFUL');
+        res.rows = event;
+        next();
+      })
+      .catch(error => next(error));
+  },
+
+  attend(req, res, next) {
+    db.any(`INSERT INTO attendance (user_id, event) VALUES ($/user_id/, $/event_id/)`, req.body)
+      .then((event) => {
+        console.log(req.body.user_id, 'is attending', req.body.event_id);
         res.rows = event;
         next();
       })

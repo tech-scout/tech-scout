@@ -18,17 +18,21 @@ export default class ProfilePage extends Component {
   }
 
   addEvent(title, desc, url) {
+// console.log('title....', title);
     fetch('./events', {
       method: 'POST',
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       },
       body: JSON.stringify({title, desc, url})
-
+// console.log('body....', body);
     })
-      .then(r => r.json())
+      .then((r) => {
+        console.log('response (r) is: ', r);
+        r.json();
+      })
       .then((newEvent) => {
-        console.log(newEvent);
+// console.log('newEvent....', newEvent);
         // clone existing state
         const newState = {...this.state.events};
         newState[newEvent.id] = newEvent;

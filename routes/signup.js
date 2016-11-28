@@ -3,6 +3,7 @@ const db = require('../models/users');
 const auth = require('../models/auth');
 
 /* convenience method for sending */
+
 const sendJSONresp = (req, res) => res.json({token: res.token, body: res.rows});
 
 // events/:id

@@ -3,7 +3,10 @@ const db = require('../models/events');
 const auth = require('../models/auth');
 
 /* convenience method for sending */
-const sendJSONresp = (req, res) => res.json(res.rows);
+const sendJSONresp = (req, res) => {
+console.log('sendJSONresp is executing');
+  res.json({token: res.token, data: res.rows});
+};
 
 // events/:id
 // this is more specific than the /events, so it goes above
@@ -14,8 +17,14 @@ const sendJSONresp = (req, res) => res.json(res.rows);
 
 // events
 // this is the most general route, so it goes last
-events.route('/')
+events.route('/all')
+  .get(db.getAllEvents, sendJSONresp);
 
+events.route('/:userID')
+  .get(auth.authorize, db.getEventsForUser, sendJSONresp)
+  .post(auth.authorize, db.attend, sendJSONresp);
+
+events.route('/')
   .get(auth.authorize, db.getAllEvents, sendJSONresp)
   .post(auth.authorize, db.addEvent, sendJSONresp);
 
