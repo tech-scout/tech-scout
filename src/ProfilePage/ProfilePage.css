@@ -1,51 +1,53 @@
-h1 {
+.profContain{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  }
+#bottomPage{
   text-align: center;
+  align-content: center;
 }
-
-#a {
-  text-align: center;
+.profContain div {
+  border: 2px dotted pink;
 }
-
-.eventFormWrapper {
-  text-align: center;
+img {
+  margin-top: 20px;
+  height: 200px;
+  width: 200px;
+  float: left;
+  border: 2px solid black;
+  display: inline-block;
 }
-
-.sr-only {
+.userInfo{
+  margin-top: 20px;
+  height: 100px;
+  width: 650px;
+  display: inline-block;
+  float: left;
+}
+.users_events{
+  margin-top: 10px;
+  display: inline-block;
+  height: 60vh;
+  width: 425px;
+  overflow-y: auto;
+}
+.interests{
   position: absolute;
-  left: 40%;
-  top: 30%;
-}
+  top: 212px;
+  left:415px;
+  height: 97px;
+  width: 650px;
+  float: right;
+  display: inline-block;
 
-.sr-only2 {
-  position: absolute;
-  left: 40%;
-  top: 40%;
 }
+.friendList{
+  float: left;
+  margin-top: 10px;
+  height: 60vh;
+  width: 425px;
+  display: inline-block;
 
-.sr-only3 {
-  position: absolute;
-  left: 40%;
-  top: 50%;
-}
-
-.input-lg {
-  position: absolute;
-  left: 50%;
-  top: 30%;
-}
-
-.input-lg2 {
-  position: absolute;
-  left: 50%;
-  top: 40%;
-}
-
-.input-lg3 {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-}
-button{
-  position: absolute;
-  top: 70%;
 }
