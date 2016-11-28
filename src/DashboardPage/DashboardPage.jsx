@@ -31,6 +31,21 @@ console.log('this.state.events...', this.state.events);
     });
   }
 
+
+
+  addEvent(name, desc) {
+    AjaxAdapter.addEvent({ name, description, date_created, img_url })
+    .then((newEvent) => {
+      // clone existing state
+      const newState = { ...this.state.events };
+      newState[newEvent.id] = newEvent;
+      this.setState({ events: newState });
+    })
+    .catch((error) => {
+      throw error;
+    });
+  }
+
   addEvent(title, desc, url) {
 // console.log('title....', title);
     fetch('./events', {

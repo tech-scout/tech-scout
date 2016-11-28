@@ -72,7 +72,7 @@ module.exports = {
   addEvent(req, res, next) {
     console.log('===addEvent===',req.body);
     db.one(
-      'INSERT INTO events (name, description, img_url) VALUES ($/title/, $/desc/, $/url/) returning *;',
+      'INSERT INTO events (name, description, date_created, img_url) VALUES ($/title/, $/desc/, $/date_created/, $/url/) returning *;',
       req.body
       )
       .then((event) => {

@@ -30,6 +30,10 @@ export default class ProfilePage extends Component {
   }
 
   // need to change add Event function to use AjaxAdapter.addEvent after creating that as function as well
+
+
+
+
   addEvent(title, desc, url) {
 // console.log('title....', title);
     fetch('./events', {

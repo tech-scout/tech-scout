@@ -15,7 +15,7 @@ export default class AjaxAdapter{
   }
 
   static addEvent(newTask) {
-    return fetch('/events', {
+    return fetch('/api/events', {
       method:  'POST',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -25,8 +25,8 @@ export default class AjaxAdapter{
       .then(r => r.json());
   }
 
-  static deleteTask(id) {
-    return fetch(`/events/${id}`, {
+  static deleteEvent(id) {
+    return fetch(`/api/events/${id}`, {
       method:  'DELETE',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
