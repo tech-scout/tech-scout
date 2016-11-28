@@ -17,10 +17,11 @@ app.use(logger('dev'));
 
 app.use(bodyParser.json());
 
-app.use('/events', require('./routes/events'));
+app.use('api/events', require('./routes/events'));
 
-app.use('/signup', require('./routes/signup'));
+app.use('api/signup', require('./routes/signup'));
 
 app.use(express.static(path.join(__dirname, 'dist')));
+app.get('/', (req, res) => res.redirect('/app'));
 
 app.listen(PORT, () => console.log('server is up and running on port', PORT));

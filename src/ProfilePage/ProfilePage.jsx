@@ -5,6 +5,7 @@ import Nav from "../components/Nav/Nav.jsx";
 import About from '../components/About/About.jsx';
 import EventForm from '../components/EventForm/EventForm.jsx';
 import Footer from '../components/Footer/Footer.jsx';
+import AjaxAdapter from '../helpers/AjaxAdapter';
 
 export default class ProfilePage extends Component {
   constructor(props) {
@@ -17,6 +18,19 @@ export default class ProfilePage extends Component {
     this.addEvent = this.addEvent.bind(this);
   }
 
+  // executed once the ProfilePage component mounts
+  componentDidMount() {
+    AjaxAdapter.getAllEvents()
+    .then((allEvents) => {
+      this.setState({ events: allEvents });
+    }
+    )
+    .catch((error) => {
+        throw error;
+    });
+  }
+
+  // need to change add Event function to use AjaxAdapter.addEvent after creating that as function as well
   addEvent(title, desc, url) {
 // console.log('title....', title);
     fetch('./events', {
@@ -55,7 +69,6 @@ export default class ProfilePage extends Component {
 
        <EventList
           events={this.state.events}
-          getAllEvents={this.getAllEvents.bind(this)}
         />
 
         <h1>Add Event Form</h1>

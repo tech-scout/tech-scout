@@ -5,7 +5,8 @@ const auth = require('../models/auth');
 /* convenience method for sending */
 const sendJSONresp = (req, res) => {
 console.log('sendJSONresp is executing');
-  res.json({token: res.token, data: res.rows});
+  // res.json({token: res.token, data: res.rows});
+  res.json(res.rows);
 };
 
 // events/:id
@@ -25,8 +26,8 @@ events.route('/:userID')
   .post(auth.authorize, db.attend, sendJSONresp);
 
 events.route('/')
-  .get(auth.authorize, db.getAllEvents, sendJSONresp)
-  .post(auth.authorize, db.addEvent, sendJSONresp);
+  .get(db.getAllEvents, sendJSONresp)
+  .post(db.addEvent, sendJSONresp);
 
 // export this so it is available to server.js
 module.exports = events;

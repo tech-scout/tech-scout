@@ -7,7 +7,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 ReactDOM.render(
   <Router history={browserHistory}>
-    <Route path='/' component={LandingPage}></Route>
-    <Route path='/Signup_Login' component={LoginPage}></Route>
-    <Route path='/ProfilePage' component={ProfilePage}></Route>
+    <Route path='/app' component={LandingPage}></Route>
+    <Route path='/app/Signup_Login' component={LoginPage}></Route>
+    <Route path='/app/ProfilePage' component={ProfilePage}></Route>
 </Router>, document.querySelector('#root-container'));
