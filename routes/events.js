@@ -22,7 +22,7 @@ events.route('/all')
   .get(db.getAllEvents, sendJSONresp);
 
 events.route('/:userID')
-  .get(auth.authorize, db.getEventsForUser, sendJSONresp)
+  .get(db.getEventsForUser, sendJSONresp)
   .post(auth.authorize, db.attend, sendJSONresp);
 
 events.route('/')
