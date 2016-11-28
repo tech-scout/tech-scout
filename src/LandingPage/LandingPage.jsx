@@ -10,7 +10,8 @@ export default class LandingPage extends Component {
     return(
       <div className="landingPage">
       <Nav />
-      <p><Link style={{textDecoration: 'none'}} to="/app/signup_login">SignUp/Login</Link></p>
+      <p className="p"><Link style={{textDecoration: 'none'}} to="/app/Signup_Login">SignUp/Login</Link></p>
+
       <Search />
       <div className="event_list">
 
