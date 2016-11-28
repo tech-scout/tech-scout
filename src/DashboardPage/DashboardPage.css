@@ -1,0 +1,51 @@
+h1 {
+  text-align: center;
+}
+
+#a {
+  text-align: center;
+}
+
+.eventFormWrapper {
+  text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  left: 40%;
+  top: 30%;
+}
+
+.sr-only2 {
+  position: absolute;
+  left: 40%;
+  top: 40%;
+}
+
+.sr-only3 {
+  position: absolute;
+  left: 40%;
+  top: 50%;
+}
+
+.input-lg {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+}
+
+.input-lg2 {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+}
+
+.input-lg3 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+button{
+  position: absolute;
+  top: 70%;
+}

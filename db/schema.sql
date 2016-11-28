@@ -12,6 +12,7 @@ CREATE TABLE users(
   username VARCHAR(64) NOT NULL,
   title VARCHAR(64) DEFAULT '',
   password VARCHAR(64) NOT NULL,
+  email VARCHAR(100),
   img_url VARCHAR(255) DEFAULT 'http://www.barebooks.com/wp-content/uploads/2013/10/Round-Game-Board-Blank.gif'
 );
 
@@ -47,12 +48,9 @@ CREATE TABLE userInterestEdge(
   interest INTEGER NOT NULL REFERENCES interests(id) ON UPDATE CASCADE ON DELETE CASCADE,
   PRIMARY KEY(user_id, interest));
 
-
 CREATE TABLE eventInterestEdge(
   event INTEGER NOT NULL REFERENCES events(id) ON UPDATE CASCADE ON DELETE CASCADE,
   interest INTEGER NOT NULL REFERENCES interests(id) ON UPDATE CASCADE ON DELETE CASCADE,
   PRIMARY KEY(event, interest));
-
-
 
 COMMIT;

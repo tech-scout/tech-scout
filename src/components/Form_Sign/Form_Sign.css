@@ -1,0 +1,17 @@
+.signup_form{
+  background-color: #e0ebeb;
+  height: 60vh;
+  width: 30vw;
+}
+input {
+  width: 300px;
+  margin-top: 15px;
+  height: 40px;
+}
+#submit{
+  padding: 30px;
+  font-size: 60px;
+}
+#submit:hover{
+  cursor: pointer;
+}

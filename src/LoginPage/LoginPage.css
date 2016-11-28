@@ -1,0 +1,9 @@
+.LoginPage{
+text-align: center;
+}
+a{
+  text-decoration: none;
+}
+a:hover{
+  color: blue;
+}
