@@ -33,6 +33,16 @@ img {
   width: 425px;
   overflow-y: auto;
 }
+.event_list{
+  position: relative;
+  margin-top: 10px;
+  display: inline-block;
+  height: 50vh;
+  width: 425px;
+  overflow-y: auto;
+      margin-right: 317px;
+    margin-left: -311px;
+}
 .interests{
   position: absolute;
   top: 212px;
@@ -44,9 +54,9 @@ img {
 
 }
 .friendList{
-  float: left;
+
   margin-top: 10px;
-  height: 60vh;
+  height: 50vh;
   width: 425px;
   display: inline-block;
 

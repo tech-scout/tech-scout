@@ -14,6 +14,14 @@ export default class AjaxAdapter{
     .then(data => indexByKeyName(data, 'id'));
   }
 
+  static getEventsForUser(user) {
+    return fetch(`/api/${user}`)
+    .then((r) => {
+      return r.json();
+    })
+    .then(data => indexByKeyName(data, 'id'));
+  }
+
   static addEvent(newTask) {
     return fetch('/events', {
       method:  'POST',

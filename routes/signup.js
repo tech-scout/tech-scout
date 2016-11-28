@@ -16,8 +16,8 @@ const sendJSONresp = (req, res) => res.json({token: res.token, body: res.rows});
 // events
 // this is the most general route, so it goes last
 users.route('/')
-  .post(db.createUser, auth.createToken, sendJSONresp)
-  .get(db.getUser, auth.checkPassword, auth.createToken, sendJSONresp);
+  .post(db.createUser, sendJSONresp)
+  .get(db.getUser, auth.checkPassword, sendJSONresp);
 
 // export this so it is available to server.js
 module.exports = users;

@@ -15,9 +15,9 @@ app.use(bodyParser.json());
 app.use('/api/events', require('./routes/events'));
 app.use('/api/signup', require('./routes/signup'));
 
-// using history api fallback library to access url paths directly
 const history = require('connect-history-api-fallback');
 app.use(history());
 app.use(express.static(path.join(__dirname, 'dist')));
+// using history api fallback library to access url paths directly
 
 app.listen(PORT, () => console.log('server is up and running on port', PORT));
