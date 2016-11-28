@@ -17,9 +17,9 @@ export default class ProfilePage extends Component {
         <div id="bottomPage">
         <div className="friendList"> friends list
         </div>
-<div className="users_events"> user events
+        <div className="users_events"> user events
         </div>
-</div>
+        </div>
         <Footer />
       </div>
       )
