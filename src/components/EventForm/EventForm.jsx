@@ -1,6 +1,20 @@
 import React from 'react';
+import './EventForm.css'
 
 export default function EventForm(props) {
+
+
+  const closeModal=()=>{
+    const wrapper = document.getElementsByClassName('eventFormWrapper')[0].style.display="none";
+
+// window.onclick = function(event) {
+//     if (event.target == wrapper) {
+//         wrapper.style.display = "none";
+//     }
+// }
+  }
+
+
   const handleSubmit = (event) => {
 
     // stop the event from leaving the form
@@ -17,26 +31,32 @@ export default function EventForm(props) {
 
   return (
     <div className="eventFormWrapper">
+    <div className="innerWrap">
+    <span onClick={() => closeModal()} className="close">×</span>
+    <h1>Add Event</h1>
+
     <form className="form-inline" onSubmit={handleSubmit}>
 
       <div className="form-group">
 
-        <label className="sr-only" htmlFor="eventName">Event Name</label>
+
         <input type="text" className="form-control input-lg" name="eventTitle" placeholder="Event Name" />
       </div>
 
       <div className="form-group">
-        <label className="sr-only2" htmlFor="EventDesc">Event Description</label>
+
         <input type="text" className="form-control input-lg2" name="eventDescription" placeholder="Event Description" />
       </div>
 
       <div className="form-group">
-        <label className="sr-only3" htmlFor="EventUrl">Event Url</label>
+
         <input type="text" className="form-control input-lg3" name="eventUrl" placeholder="Event Url" />
       </div>
 
       <button type="submit" className="btn btn-danger btn-lg" onClick={props.addEvent}>Add Event</button>
     </form>
+
+    </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import DashboardPage      from './DashboardPage/DashboardPage.jsx';
+import DashboardPage  from './DashboardPage/DashboardPage.jsx';
 import LoginPage from './LoginPage/LoginPage.jsx';
 import LandingPage from './LandingPage/LandingPage.jsx';
 import ProfilePage from './ProfilePage/ProfilePage.jsx';
