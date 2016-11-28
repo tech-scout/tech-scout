@@ -83,6 +83,16 @@ module.exports = {
       .catch(error => next(error));
   },
 
+  attend(req, res, next) {
+    db.any(`INSERT INTO attendance (user_id, event) VALUES ($/user_id/, $/event_id/)`, req.body)
+      .then((event) => {
+        console.log(req.body.user_id, 'is attending', req.body.event_id);
+        res.rows = event;
+        next();
+      })
+      .catch(error => next(error));
+  },
+
   /* PUT /events/:eventID */
   updateEvent(req, res, next) {
     // tID is invented here
