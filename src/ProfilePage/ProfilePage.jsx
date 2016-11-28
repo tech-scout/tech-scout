@@ -21,9 +21,9 @@ export default class ProfilePage extends Component {
   // executed once the ProfilePage component mounts
   componentDidMount() {
     AjaxAdapter.getAllEvents()
-    .then((allEvents) => {
-      this.setState({ events: allEvents });
-    }
+      .then((allEvents) => {
+        this.setState({ events: allEvents });
+      }
     )
     .catch((error) => {
         throw error;
