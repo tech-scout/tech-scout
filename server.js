@@ -12,7 +12,6 @@ app.use(logger('dev'));
 
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => res.redirect('/app'));
 app.use('/api/events', require('./routes/events'));
 app.use('/api/signup', require('./routes/signup'));
 

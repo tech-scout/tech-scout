@@ -23,6 +23,7 @@ export default class ProfilePage extends Component {
     AjaxAdapter.getAllEvents()
       .then((allEvents) => {
         this.setState({ events: allEvents });
+// console.log('this.state.events...', this.state.events);
       }
     )
     .catch((error) => {
@@ -42,7 +43,6 @@ export default class ProfilePage extends Component {
 // console.log('body....', body);
     })
       .then((r) => {
-        console.log('response (r) is: ', r);
         r.json();
       })
       .then((newEvent) => {
