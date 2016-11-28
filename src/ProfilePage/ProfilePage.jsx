@@ -10,8 +10,6 @@ export default class ProfilePage extends Component {
         <Nav />
         <img src="#" alt="Profile_img"/>
         <div className="userInfo">user info</div>
-
-
         <div className="interests"> interests
         </div>
         <div id="bottomPage">
