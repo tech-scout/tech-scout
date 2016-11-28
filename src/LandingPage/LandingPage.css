@@ -1,3 +1,20 @@
 .landingPage {
   text-align: center;
 }
+p{
+ text-align: right;
+ margin-right: 40px;
+
+}
+p a {
+  color: #260d0d;
+}
+.event_list{
+  position: absolute;
+  left:31.5%;
+  width: 35vw;
+  height: 80vh;
+  border: 2px solid #260d0d;
+  border-radius: 20px;
+  overflow-y: auto
+}

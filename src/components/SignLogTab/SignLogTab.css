@@ -1,15 +1,17 @@
 .loginTabs{
+  margin-top: 20px;
   display: inline-block;
+  color:#260d0d
 }
 .signup{
   padding: 10px;
   font-size: 30px;
   width: 100px;
   display: inline-block;
-  color: pink;
 }
 .signup:hover {
   cursor: pointer;
+  color: pink;
 }
 .login{
   padding: 10px;
@@ -19,9 +21,7 @@
 }
 .login:hover {
   cursor: pointer;
-}
-#try {
-  color:pink;
+  color: lightblue;
 }
 .sep {
   display: inline-block;
