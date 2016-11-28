@@ -5,11 +5,17 @@
   margin: 0;
   width: 100%;
   height: 80px;
-  background-color: #f9ecec;
+  border-bottom: 2px solid #21BEDE;
  text-align: center;
 }
 
 h1{
+  font-family: sans-serif;
   padding-top: 2%;
-  color:#260d0d;
+}
+#blue{
+color: #085DAD;
+}
+#green{
+color: #8CC739;
 }
