@@ -12,6 +12,7 @@ CREATE TABLE users(
   username VARCHAR(64) NOT NULL,
   title VARCHAR(64) DEFAULT '',
   password VARCHAR(64) NOT NULL,
+  email VARCHAR(100),
   img_url VARCHAR(255) DEFAULT 'http://www.barebooks.com/wp-content/uploads/2013/10/Round-Game-Board-Blank.gif'
 );
 

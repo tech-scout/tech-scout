@@ -49,7 +49,7 @@ module.exports = {
   },
 
   createUser(req, res, next) {
-    db.one(`INSERT INTO users (username, password, title, img_url) VALUES ($/username/, $/password/, $/title/, $/img_url/) returning *`, req.body)
+    db.one(`INSERT INTO users (username, password, email, title, img_url) VALUES ($/username/, $/password/, $/email/, $/title/, $/img_url/) returning *`, req.body)
       .then((user) => {
         res.rows = user;
         next();
