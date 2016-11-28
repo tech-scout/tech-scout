@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import './ProfilePage.css';
-import Nav from '../components/Nav/Nav.jsx';
+import EventList from '../components/EventList/EventList.jsx';
+import "./DashboardPage.css";
+import Nav from "../components/Nav/Nav.jsx";
+import About from '../components/About/About.jsx';
+import EventForm from '../components/EventForm/EventForm.jsx';
 import Footer from '../components/Footer/Footer.jsx';
-import EventList from '../components/EventList/EventList.jsx'
 import AjaxAdapter from '../helpers/AjaxAdapter';
 
-export default class ProfilePage extends Component {
+export default class DashboardPage extends Component {
   constructor(props) {
     super();
 
@@ -21,7 +23,7 @@ export default class ProfilePage extends Component {
     AjaxAdapter.getAllEvents()
       .then((allEvents) => {
         this.setState({ events: allEvents });
-// console.log('this.state.events...', this.state.events);
+console.log('this.state.events...', this.state.events);
       }
     )
     .catch((error) => {
@@ -29,7 +31,6 @@ export default class ProfilePage extends Component {
     });
   }
 
-  // need to change add Event function to use AjaxAdapter.addEvent after creating that as function as well
   addEvent(title, desc, url) {
 // console.log('title....', title);
     fetch('./events', {
@@ -41,6 +42,7 @@ export default class ProfilePage extends Component {
 // console.log('body....', body);
     })
       .then((r) => {
+        console.log('response (r) is: ', r);
         r.json();
       })
       .then((newEvent) => {
@@ -57,24 +59,26 @@ export default class ProfilePage extends Component {
   }
 
   render() {
-    return(
-      <div className="profContain">
-        <Nav />
-        <img src="#" alt="Profile_img"/>
-        <div className="userInfo">user info</div>
-        <div className="interests"> interests
+    return (
+      <div className="ProfilePage">
+
+      <Nav/>
+        <div id="a">
+          <a href="#">Sign Out</a>
         </div>
-        <div id="bottomPage">
-        <div className="friendList"> friends list
-        </div>
+
         <div className="users_events"> user events
           <EventList
             events={this.state.events}
           />
         </div>
-        </div>
+
+        <h1>Add Event Form</h1>
+        <EventForm addEvent={this.addEvent.bind(this)}
+        />
         <Footer />
       </div>
-      )
+    );
   }
 }
+// add={this.addButton.bind(this)}

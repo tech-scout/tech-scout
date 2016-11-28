@@ -17,8 +17,6 @@ const EventList = props => (
   <div className="event_list">
     <h1>showing list of events</h1>
     {generateEvents(props.events)}
-    {/* {console.log('props...', props)}
-    {console.log('generateEvents(props.events)...', generateEvents(props.events))} */}
   </div>
 );
 
