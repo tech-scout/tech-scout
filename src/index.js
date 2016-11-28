@@ -34,7 +34,7 @@ export default class Index extends Component {
         <Route path='/app/profile' authenticate={this.authenticate} userID={this.state.user} token={this.state.token} component={ProfilePage}></Route>
         <Route path='/app/dashboard' authenticate={this.authenticate} userID={this.state.user} token={this.state.token} component={DashboardPage}></Route>
       </Router>);
-}
+  }
 }
 
 ReactDOM.render(<Index />, document.querySelector('#root-container'));
