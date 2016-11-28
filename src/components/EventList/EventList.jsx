@@ -6,8 +6,10 @@ const generateEvents = events =>
     .map((eventID, i) => (
       <EventItem
         key={i}
-        title={events[eventID].title}
-        desc={events[eventID].description}
+        name={events[eventID].name}
+        description={events[eventID].description}
+        date_created={events[eventID].date_created}
+        img_url={events[eventID].img_url}
       />
     ));
 

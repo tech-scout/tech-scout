@@ -7,13 +7,11 @@ function indexByKeyName(arr, keyName) {
 
 export default class AjaxAdapter{
   static getAllEvents() {
-    return fetch('./api/events')
+    return fetch('/api/events')
     .then((r) => {
-      console.log(r.json());
-      r.json();
+      return r.json();
     })
-    .then((data) => {
-      indexByKeyName(data, 'id')});
+    .then(data => indexByKeyName(data, 'id'));
   }
 
   static addEvent(newTask) {
