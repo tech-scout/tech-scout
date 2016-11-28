@@ -72,7 +72,7 @@ module.exports = {
   addEvent(req, res, next) {
     console.log('===addEvent===',req.body);
     db.one(
-      'INSERT INTO events (name, description, img_url) VALUES ($/title/, $/desc/, $/url/) returning *;',
+      'INSERT INTO events (name, description, img_url) VALUES ($/name/, $/desc/, $/img_url/) returning *;',
       req.body
       )
       .then((event) => {
@@ -80,7 +80,11 @@ module.exports = {
         res.rows = event;
         next();
       })
-      .catch(error => next(error));
+      .catch((error) => {
+console.log('about to throw error');
+        next(error);
+console.log('just threw error');
+      });
   },
 
   attend(req, res, next) {
@@ -94,26 +98,26 @@ module.exports = {
   },
 
   /* PUT /events/:eventID */
-  updateEvent(req, res, next) {
-    // tID is invented here
-    req.body.tID = Number.parseInt(req.params.eventID);
-    req.body.completed = !!req.body.completed;
-
-    db.one(
-      `UPDATE event SET
-      name = $/name/,
-      description = $/description/,
-      completed = $/completed/,
-      WHERE id = $/tID/
-      returning *;
-      `, req.body)
-      .then((event) => {
-        console.log('ADDED UPDATED SUCCESSFULLY');
-        res.rows = event;
-        next();
-      })
-      .catch(error => next(error));
-  },
+  // updateEvent(req, res, next) {
+  //   // tID is invented here
+  //   req.body.tID = Number.parseInt(req.params.eventID);
+  //   req.body.completed = !!req.body.completed;
+  //
+  //   db.one(
+  //     `UPDATE event SET
+  //     name = $/name/,
+  //     description = $/description/,
+  //     completed = $/completed/,
+  //     WHERE id = $/tID/
+  //     returning *;
+  //     `, req.body)
+  //     .then((event) => {
+  //       console.log('ADDED UPDATED SUCCESSFULLY');
+  //       res.rows = event;
+  //       next();
+  //     })
+  //     .catch(error => next(error));
+  // },
 
   /* DELETE /events/:id */
   deleteEvent(req, res, next) {

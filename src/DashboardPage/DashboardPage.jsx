@@ -23,7 +23,6 @@ export default class DashboardPage extends Component {
     AjaxAdapter.getAllEvents()
       .then((allEvents) => {
         this.setState({ events: allEvents });
-console.log('this.state.events...', this.state.events);
       }
     )
     .catch((error) => {
