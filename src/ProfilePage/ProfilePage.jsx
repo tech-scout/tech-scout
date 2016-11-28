@@ -45,6 +45,18 @@ export default class ProfilePage extends Component {
       });
   }
 
+  getAllEvents() {
+    fetch(`/all`)
+    .then(r => r.json())
+    .then((data) => {
+      this.setState({
+        events: data
+      });
+console.log('events is...', events);
+    })
+    .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div className="ProfilePage">
@@ -55,8 +67,10 @@ export default class ProfilePage extends Component {
         </div>
 
        <EventList
-        collection={this.state.events}
+          events={this.state.events}
+          getAllEvents={this.getAllEvents.bind(this)}
         />
+
         <h1>Add Event Form</h1>
         <EventForm addEvent={this.addEvent.bind(this)}
         />
