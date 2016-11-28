@@ -1,19 +1,29 @@
 .landingPage {
   text-align: center;
 }
-p{
+.p{
+  float: right;
+  width: 87px;
  text-align: right;
- margin-right: 40px;
-
+ margin-right: 20px;
+ margin-bottom: 5px;
+    font-size: 15px;
+    background-color: grey;
+    border-radius: 3px;
+    padding: 1px;
+    clear: both;
 }
-p a {
-  color: #260d0d;
+.p a {
+      color: white;
+}
+.p a:hover{
+  color: purple;
 }
 .event_list{
   position: absolute;
-  left:31.5%;
-  width: 35vw;
-  height: 80vh;
+  left:25%;
+  width: 55vw;
+  height: 75vh;
   border: 2px solid #260d0d;
   border-radius: 20px;
   overflow-y: auto

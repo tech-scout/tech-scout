@@ -3,10 +3,10 @@ import './EventItem.css'
 
 const Event = props => (
   <div className="event_item">
-    <img src={props.eventUrl} alt=""/>
-    <h2>Event Title</h2>
-    <h5>hosted by: {props.eventAuthor}</h5>
-    <p>Description:  {props.eventDescription}</p>
+    <h2>Event Title: {props.name}</h2>
+    <p>Description:  {props.description}</p>
+    <p>Date Created:  {props.date_created}</p>
+    <p>Image Url:  {props.img_url}</p>
   </div>
 );
 

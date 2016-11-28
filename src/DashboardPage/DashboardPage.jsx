@@ -5,6 +5,7 @@ import Nav from "../components/Nav/Nav.jsx";
 import About from '../components/About/About.jsx';
 import EventForm from '../components/EventForm/EventForm.jsx';
 import Footer from '../components/Footer/Footer.jsx';
+import AjaxAdapter from '../helpers/AjaxAdapter';
 
 export default class DashboardPage extends Component {
   constructor(props) {
@@ -15,6 +16,19 @@ export default class DashboardPage extends Component {
     };
 
     this.addEvent = this.addEvent.bind(this);
+  }
+
+  // executed once the ProfilePage component mounts
+  componentDidMount() {
+    AjaxAdapter.getAllEvents()
+      .then((allEvents) => {
+        this.setState({ events: allEvents });
+console.log('this.state.events...', this.state.events);
+      }
+    )
+    .catch((error) => {
+        throw error;
+    });
   }
 
   addEvent(title, desc, url) {
@@ -53,7 +67,11 @@ export default class DashboardPage extends Component {
           <a href="#">Sign Out</a>
         </div>
 
-
+        <div className="users_events"> user events
+          <EventList
+            events={this.state.events}
+          />
+        </div>
 
         <h1>Add Event Form</h1>
         <EventForm addEvent={this.addEvent.bind(this)}
