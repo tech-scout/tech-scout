@@ -1,51 +1,33 @@
-h1 {
-  text-align: center;
+div {
+  border: 2px dotted pink;
 }
-
-#a {
-  text-align: center;
+img {
+  height: 200px;
+  width: 200px;
+  float: left;
+  border: 2px solid black;
 }
-
-.eventFormWrapper {
-  text-align: center;
+.userInfo{
+  height: 200px;
+  width: 700px;
+  display: inline-block;
+  float: left;
 }
-
-.sr-only {
-  position: absolute;
-  left: 40%;
-  top: 30%;
+.users_events{
+  float:right;
+  display: inline-block;
+  height: 60vh;
+  width: 350px;
+  overflow-y: auto;
 }
-
-.sr-only2 {
-  position: absolute;
-  left: 40%;
-  top: 40%;
+.interests{
+  height: 100px;
+  width: 900px;
+  float: left;
 }
-
-.sr-only3 {
-  position: absolute;
-  left: 40%;
-  top: 50%;
-}
-
-.input-lg {
-  position: absolute;
-  left: 50%;
-  top: 30%;
-}
-
-.input-lg2 {
-  position: absolute;
-  left: 50%;
-  top: 40%;
-}
-
-.input-lg3 {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-}
-button{
-  position: absolute;
-  top: 70%;
+.friendList{
+  clear: both;
+  margin-top: -100px;
+  height: 200px;
+  width: 200px;
 }
