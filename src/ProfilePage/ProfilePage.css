@@ -1,33 +1,53 @@
-div {
+.profContain{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  }
+#bottomPage{
+  text-align: center;
+  align-content: center;
+}
+.profContain div {
   border: 2px dotted pink;
 }
 img {
+  margin-top: 20px;
   height: 200px;
   width: 200px;
   float: left;
   border: 2px solid black;
+  display: inline-block;
 }
 .userInfo{
-  height: 200px;
-  width: 700px;
+  margin-top: 20px;
+  height: 100px;
+  width: 650px;
   display: inline-block;
   float: left;
 }
 .users_events{
-  float:right;
+  margin-top: 10px;
   display: inline-block;
   height: 60vh;
-  width: 350px;
+  width: 425px;
   overflow-y: auto;
 }
 .interests{
-  height: 100px;
-  width: 900px;
-  float: left;
+  position: absolute;
+  top: 212px;
+  left:415px;
+  height: 97px;
+  width: 650px;
+  float: right;
+  display: inline-block;
+
 }
 .friendList{
-  clear: both;
-  margin-top: -100px;
-  height: 200px;
-  width: 200px;
+  float: left;
+  margin-top: 10px;
+  height: 60vh;
+  width: 425px;
+  display: inline-block;
+
 }
