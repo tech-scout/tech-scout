@@ -1,0 +1,21 @@
+.login_form{
+  background-color: #f0f0f5;
+  height: 60vh;
+  width: 30vw;
+}
+
+.input {
+  width: 300px;
+  margin-top: 25px;
+  height: 45px;
+}
+#submit{
+  padding: 30px;
+  font-size: 60px;
+}
+#submit:hover{
+  cursor: pointer;
+}
+#top{
+  margin-top: 25px;
+}

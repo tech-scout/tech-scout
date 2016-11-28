@@ -21,8 +21,8 @@ events.route('/all')
   .get(db.getAllEvents, sendJSONresp);
 
 events.route('/:userID')
-  .get(auth.authorize, auth.checkIfOwnProfile, db.getEventsForUser, sendJSONresp)
-  .post(auth.authorize, auth.checkIfOwnProfile, db.attend, sendJSONresp);
+  .get(auth.authorize, db.getEventsForUser, sendJSONresp)
+  .post(auth.authorize, db.attend, sendJSONresp);
 
 events.route('/')
   .get(auth.authorize, db.getAllEvents, sendJSONresp)

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 import EventList from '../components/EventList/EventList.jsx';
 import "./ProfilePage.css";
 import Nav from "../components/Nav/Nav.jsx";
