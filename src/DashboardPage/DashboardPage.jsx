@@ -6,7 +6,8 @@ import About from '../components/About/About.jsx';
 import EventForm from '../components/EventForm/EventForm.jsx';
 import Footer from '../components/Footer/Footer.jsx';
 import AjaxAdapter from '../helpers/AjaxAdapter';
-
+import Search from '../components/Search/Search.jsx';
+import CreateEvent from '../components/CreateEvent/CreateEvent.jsx';
 export default class DashboardPage extends Component {
   constructor(props) {
     super();
@@ -57,6 +58,12 @@ console.log('this.state.events...', this.state.events);
         throw error;
       });
   }
+    eventCreated(){
+      //button that opens modal
+      const button = document.getElementsByClassName('created');
+      const wrapper = document.getElementsByClassName('eventFormWrapper')[0].style.display="block";
+      const close = document.getElementsByClassName("close");
+  }
 
   render() {
     return (
@@ -66,19 +73,18 @@ console.log('this.state.events...', this.state.events);
         <div id="a">
           <a href="#">Sign Out</a>
         </div>
+        <Search />
+        <CreateEvent
+        CreateEvent={this.eventCreated.bind(this)}
+        />
 
-        <div className="users_events"> user events
+        <div className="users_events">
           <EventList
             events={this.state.events}
           />
         </div>
-
-        <h1>Add Event Form</h1>
-        <EventForm addEvent={this.addEvent.bind(this)}
-        />
         <Footer />
       </div>
     );
   }
 }
-// add={this.addButton.bind(this)}

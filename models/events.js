@@ -7,6 +7,7 @@ module.exports = {
     db.any('SELECT * from events;')
       .then((events) => {
         res.rows = events;
+console.log('events...', events)
         next();
       })
       .catch(error => next(error));
