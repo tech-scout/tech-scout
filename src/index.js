@@ -14,4 +14,3 @@ ReactDOM.render(
     <Route path='/app/dashboard' component={DashboardPage}></Route>
 </Router>, document.querySelector('#root-container'));
 
-// dummy comment
