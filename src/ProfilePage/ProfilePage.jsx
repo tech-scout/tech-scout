@@ -45,18 +45,6 @@ export default class ProfilePage extends Component {
       });
   }
 
-  getAllEvents() {
-    fetch(`/all`)
-    .then(r => r.json())
-    .then((data) => {
-      this.setState({
-        events: data
-      });
-console.log('events is...', events);
-    })
-    .catch(err => console.log(err));
-  }
-
   render() {
     return (
       <div className="ProfilePage">
