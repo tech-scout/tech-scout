@@ -13,9 +13,11 @@ module.exports = {
   },
 
   getUser(req, res, next) {
-    db.one(`SELECT * FROM users WHERE id = ${req.body.user.id}`)
+    console.log(req.query);
+    db.one(`SELECT * FROM users WHERE username = '${req.query.username}' AND password = '${req.query.password}'`)
       .then((user) => {
-        res.rows = user;
+        console.log(user);
+        res.user = user;
         next();
       })
       .catch(error => next(error));
@@ -49,9 +51,8 @@ module.exports = {
   },
 
   createUser(req, res, next) {
-    db.any(`INSERT INTO users (username, title, password, email, img_url) VALUES ($/username/, $/title/, $/password/, $/email/, $/img_url/) returning *`, req.body)
+    db.one(`INSERT INTO users (username, title, password, email, img_url) VALUES ($/username/, $/title/, $/password/, $/email/, $/img_url/) returning *`, req.body)
       .then((user) => {
-        console.log(user[0]);
         res.user = user;
         next();
       })

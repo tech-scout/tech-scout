@@ -20,7 +20,10 @@ users.route('/')
     // console.log(res.token);
     res.json({token: res.token});
   })
-  .get(db.getUser, auth.checkPassword, sendJSONresp);
+  .get(db.getUser, auth.createToken, (req, res) => {
+    // console.log(res.token);
+    res.json({token: res.token});
+  });
   // .get((req, res) => res.send(200));
 
 // export this so it is available to server.js

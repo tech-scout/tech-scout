@@ -7,7 +7,7 @@ const decoded = obj => jwt.verify(obj, process.env.SECRET);
 
 const createToken = (req, res, next) => {
   const user = res.user;
-  console.log(jwt.sign(res.user[0], `${process.env.SECRET}`));
+  console.log(jwt.sign(res.user, `${process.env.SECRET}`));
   res.token = token({
     id: user.id,
     name: user.username,
