@@ -1,14 +1,18 @@
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
-const token = obj => jwt.sign(obj, PROCESS.ENV.SECRET);
+const token = obj => jwt.sign(obj, process.env.SECRET);
 
-const decoded = obj => jwt.verify(obj, PROCESS.ENV.SECRET);
+const decoded = obj => jwt.verify(obj, process.env.SECRET);
 
 const createToken = (req, res, next) => {
   const user = res.user;
+  console.log(jwt.sign(res.user[0], `${process.env.SECRET}`));
   res.token = token({
     id: user.id,
-    name: user.username
+    name: user.username,
+    img_url: user.img_url,
+    title: user.title,
   })
   next();
 }
