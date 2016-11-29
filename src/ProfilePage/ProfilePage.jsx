@@ -16,8 +16,6 @@ export default class ProfilePage extends Component {
       following: {},
       followers: {},
     };
-
-    this.addEvent = this.addEvent.bind(this);
   }
 
   // executed once the ProfilePage component mounts
@@ -25,40 +23,11 @@ export default class ProfilePage extends Component {
     AjaxAdapter.getEventsForUser()
       .then((allEvents) => {
         this.setState({ events: allEvents });
-// console.log('this.state.events...', this.state.events);
       }
     )
     .catch((error) => {
         throw error;
     });
-
-  }
-  // beep bap boop
-  // need to change add Event function to use AjaxAdapter.addEvent after creating that as function as well
-  addEvent(title, desc, url) {
-// console.log('title....', title);
-    fetch('./events', {
-      method: 'POST',
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      },
-      body: JSON.stringify({title, desc, url})
-// console.log('body....', body);
-    })
-      .then((r) => {
-        r.json();
-      })
-      .then((newEvent) => {
-// console.log('newEvent....', newEvent);
-        // clone existing state
-        const newState = {...this.state.events};
-        newState[newEvent.id] = newEvent;
-        this.setState({events: newState});
-        next();
-      })
-      .catch((error) => {
-        throw error;
-      });
   }
 
   render() {
@@ -69,14 +38,11 @@ export default class ProfilePage extends Component {
         <div className="userInfo">user info</div>
         <div className="interests"> interests
         </div>
-
         <div className="friendList"> friends list
         </div>
          <EventList
             events={this.state.events}
           />
-
-
         <Footer />
       </div>
       )

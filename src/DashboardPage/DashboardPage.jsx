@@ -8,6 +8,8 @@ import Footer from '../components/Footer/Footer.jsx';
 import AjaxAdapter from '../helpers/AjaxAdapter';
 import Search from '../components/Search/Search.jsx';
 import CreateEvent from '../components/CreateEvent/CreateEvent.jsx';
+
+// create DashboardPage component and define state
 export default class DashboardPage extends Component {
   constructor(props) {
     super();
@@ -16,7 +18,8 @@ export default class DashboardPage extends Component {
       events: {},
     };
 
-    this.addEvent = this.addEvent.bind(this);
+    // this.addEvent = this.addEvent.bind(this);
+    // this.deleteEvent = this.deleteEvent.bind(this);
   }
 
   // executed once the ProfilePage component mounts
@@ -24,7 +27,6 @@ export default class DashboardPage extends Component {
     AjaxAdapter.getAllEvents()
       .then((allEvents) => {
         this.setState({ events: allEvents });
-console.log('this.state.events...', this.state.events);
       }
     )
     .catch((error) => {
@@ -32,38 +34,39 @@ console.log('this.state.events...', this.state.events);
     });
   }
 
-  addEvent(title, desc, url) {
-// console.log('title....', title);
-    fetch('./events', {
-      method: 'POST',
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      },
-      body: JSON.stringify({title, desc, url})
-// console.log('body....', body);
+  // will execute AjaxAdapter helper method and update state
+  addEvent(name, desc, img_url) {
+    AjaxAdapter.addEvent({ name, desc, img_url })
+    .then((newEvent) => {
+      // clone existing state
+      const newState = { ...this.state.events };
+      newState[newEvent.id] = newEvent;
+      this.setState({ events: newState });
     })
-      .then((r) => {
-        console.log('response (r) is: ', r);
-        r.json();
-      })
-      .then((newEvent) => {
-// console.log('newEvent....', newEvent);
-        // clone existing state
-        const newState = {...this.state.events};
-        newState[newEvent.id] = newEvent;
-        this.setState({events: newState});
-        next();
-      })
-      .catch((error) => {
-        throw error;
+    .catch((error) => {
+      throw error;
+    });
+  }
+
+  deleteEvent(id) {
+    AjaxAdapter.deleteEvent(id)
+    .then(() => {
+      let events = this.state.events.filter((event) => {
+        return event.id !== id;
       });
+      this.setState({ events });
+    })
+    .catch(err => console.log(err));
   }
-    eventCreated(){
-      //button that opens modal
-      const button = document.getElementsByClassName('created');
-      const wrapper = document.getElementsByClassName('eventFormWrapper')[0].style.display="block";
-      const close = document.getElementsByClassName("close");
-  }
+
+  // TO REMOVE??
+
+  //   eventCreated(){
+  //     //button that opens modal
+  //     const button = document.getElementsByClassName('created');
+  //     const wrapper = document.getElementsByClassName('eventFormWrapper')[0].style.display="block";
+  //     const close = document.getElementsByClassName("close");
+  // }
 
   render() {
     return (
@@ -74,15 +77,13 @@ console.log('this.state.events...', this.state.events);
           <a href="#">Sign Out</a>
         </div>
         <Search />
-        <CreateEvent
-        CreateEvent={this.eventCreated.bind(this)}
+        <EventForm
+          addEvent={this.addEvent.bind(this)}
         />
-
-        <div className="users_events">
-          <EventList
-            events={this.state.events}
-          />
-        </div>
+        <EventList
+          events={this.state.events}
+          deleteEvent={this.deleteEvent.bind(this)}
+        />
         <Footer />
       </div>
     );

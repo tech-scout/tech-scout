@@ -2,8 +2,6 @@ import React from 'react';
 import './EventForm.css'
 
 export default function EventForm(props) {
-
-
   const closeModal=()=>{
     const wrapper = document.getElementsByClassName('eventFormWrapper')[0].style.display="none";
 
@@ -14,9 +12,7 @@ export default function EventForm(props) {
 // }
   }
 
-
   const handleSubmit = (event) => {
-
     // stop the event from leaving the form
     event.preventDefault();
     const myForm = event.target;
@@ -32,7 +28,6 @@ export default function EventForm(props) {
   return (
     <div className="eventFormWrapper">
     <div className="innerWrap">
-    <span onClick={() => closeModal()} className="close">×</span>
     <h1>Add Event</h1>
 
     <form className="form-inline" onSubmit={handleSubmit}>
