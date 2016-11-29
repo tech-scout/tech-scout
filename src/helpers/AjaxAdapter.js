@@ -1,3 +1,7 @@
+// contents of this file referenced from Jason's React todo app solution:
+// https://github.com/jasonseminara/react_to-do/tree/solution3
+
+// add index as key to corresponding event
 function indexByKeyName(arr, keyName) {
   return arr.reduce((obj, el) => {
     obj[el[keyName]] = el;
@@ -6,6 +10,7 @@ function indexByKeyName(arr, keyName) {
 }
 
 export default class AjaxAdapter{
+  // executes fetch call to api/events and returns data as json
   static getAllEvents() {
     return fetch('/api/events')
     .then((r) => {
@@ -14,6 +19,7 @@ export default class AjaxAdapter{
     .then(data => indexByKeyName(data, 'id'));
   }
 
+  // return events for specified user
   static getEventsForUser(user) {
     return fetch(`/api/${user}`)
     .then((r) => {

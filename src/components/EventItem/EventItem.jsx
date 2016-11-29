@@ -9,8 +9,11 @@ const Event = props => (
     <p>Image Url:  {props.img_url}</p>
 
     {/* need to customize editing options for only creators of event */}
-    <button>Delete Event!</button>
+    <button onClick={() => props.deleteEvent(props.id)}>Delete Event!</button>
     <button>Update Event!</button>
+
+    {/* onClick={props.click} */}
+
   </div>
 );
 

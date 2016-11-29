@@ -8,6 +8,8 @@ import Footer from '../components/Footer/Footer.jsx';
 import AjaxAdapter from '../helpers/AjaxAdapter';
 import Search from '../components/Search/Search.jsx';
 import CreateEvent from '../components/CreateEvent/CreateEvent.jsx';
+
+// create DashboardPage component and define state
 export default class DashboardPage extends Component {
   constructor(props) {
     super();
@@ -16,7 +18,8 @@ export default class DashboardPage extends Component {
       events: {},
     };
 
-    this.addEvent = this.addEvent.bind(this);
+    // this.addEvent = this.addEvent.bind(this);
+    // this.deleteEvent = this.deleteEvent.bind(this);
   }
 
   // executed once the ProfilePage component mounts
@@ -31,6 +34,7 @@ export default class DashboardPage extends Component {
     });
   }
 
+  // will execute AjaxAdapter helper method and update state
   addEvent(name, desc, img_url) {
     AjaxAdapter.addEvent({ name, desc, img_url })
     .then((newEvent) => {
@@ -43,7 +47,20 @@ export default class DashboardPage extends Component {
       throw error;
     });
   }
-  //
+
+  deleteEvent(id) {
+    AjaxAdapter.deleteEvent({id})
+    .then(() => {
+      let events = this.state.events.filter((event) => {
+        return event.id !== id;
+      });
+      this.setState({ events });
+    })
+    .catch(err => console.log(err));
+  }
+
+  // TO REMOVE??
+
   //   eventCreated(){
   //     //button that opens modal
   //     const button = document.getElementsByClassName('created');
@@ -65,6 +82,7 @@ export default class DashboardPage extends Component {
         />
         <EventList
           events={this.state.events}
+          deleteEvent={this.deleteEvent.bind(this)}
         />
         <Footer />
       </div>

@@ -4,9 +4,6 @@ import EventForm from '../EventForm/EventForm.jsx';
 
 
 export default class CreateEvent extends Component {
-
-
-
   render(){
 
     return(

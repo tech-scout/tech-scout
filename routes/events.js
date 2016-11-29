@@ -27,7 +27,8 @@ events.route('/:userID')
 
 events.route('/')
   .get(db.getAllEvents, sendJSONresp)
-  .post(db.addEvent, sendJSONresp);
+  .post(db.addEvent, sendJSONresp)
+  .delete(db.deleteEvent, sendJSONresp);
 
 // export this so it is available to server.js
 module.exports = events;
