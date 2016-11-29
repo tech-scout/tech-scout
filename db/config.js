@@ -1,3 +1,4 @@
+require('dotenv').config();
 const pg = require('pg-promise')({/* OPTIONAL Initialization Options */});
 
 const config = {

@@ -13,7 +13,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 
 app.use('/api/events', require('./routes/events'));
-app.use('/api/signup', require('./routes/signup'));
+app.use('/api/users', require('./routes/users'));
 
 const history = require('connect-history-api-fallback');
 app.use(history());
