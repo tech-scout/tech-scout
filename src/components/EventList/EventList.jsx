@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EventItem from '../EventItem/EventItem.jsx';
+import './EventList.css';
 
 const generateEvents = events =>
   Object.keys(events)
