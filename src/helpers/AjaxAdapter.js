@@ -45,6 +45,7 @@ export default class AjaxAdapter{
       method:  'DELETE',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
+        'Access-Control-Allow-Methods': 'DELETE',
       },
     }).then(r => r.json());
   }

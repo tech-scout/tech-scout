@@ -12,7 +12,7 @@ const EventList = props => {
           description={events[eventID].description}
           date_created={events[eventID].date_created}
           img_url={events[eventID].img_url}
-          id={events.id}
+          id={events[eventID].id}
           deleteEvent={props.deleteEvent}
           // deleteEvent={() => props.toggleComplete(taskID)}
         />
