@@ -4,9 +4,6 @@ import { Link } from 'react-router';
 
 
 export default class Nav extends Component {
-
-
-
   render() {
     return (
         <div id="header">

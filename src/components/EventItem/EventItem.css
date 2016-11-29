@@ -1,3 +1,9 @@
 .event_item{
   color: black;
+  margin: 20px;
+  font-size: 25px;
+}
+
+.event_item button {
+  margin: 10px;
 }

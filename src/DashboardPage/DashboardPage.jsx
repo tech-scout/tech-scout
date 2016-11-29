@@ -76,7 +76,7 @@ export default class DashboardPage extends Component {
         <div id="a">
           <a href="#">Sign Out</a>
         </div>
-        <Search />
+        {/* <Search /> */}
         <EventForm
           addEvent={this.addEvent.bind(this)}
         />

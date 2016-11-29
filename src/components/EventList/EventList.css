@@ -1,3 +1,10 @@
 div.event_list{
-  height: 69vh;
+  /*height: 69vh;*/
+  width: 100%;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.event_list h1 {
+  font-size: 50px;
 }

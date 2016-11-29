@@ -9,7 +9,7 @@ h4 {
 #search_button{
   display: inline-block;
   margin-top: 8px;
-  width: 50px;
+  /*width: 50px;*/
   padding: 20px;
 }
 .searchbar{

@@ -10,12 +10,10 @@ h1 {
   text-align: center;
 }
 
-
 .input-lg {
   font-size: 15px;
   margin-top: 20px;
   margin-bottom:20px;
-
 }
 
 .input-lg2 {
@@ -32,4 +30,8 @@ h1 {
 
 .event_item button {
   position: relative;
+}
+
+* {
+  font-size: 30px;
 }

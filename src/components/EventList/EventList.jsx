@@ -20,7 +20,7 @@ const EventList = props => {
 
   return (
     <div className="event_list">
-      <h1>showing list of events</h1>
+      <h1>List of Events</h1>
       {generateEvents(props.events)}
     </div>
   );
