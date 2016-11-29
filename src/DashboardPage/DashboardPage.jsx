@@ -49,7 +49,7 @@ export default class DashboardPage extends Component {
   }
 
   deleteEvent(id) {
-    AjaxAdapter.deleteEvent({id})
+    AjaxAdapter.deleteEvent(id)
     .then(() => {
       let events = this.state.events.filter((event) => {
         return event.id !== id;

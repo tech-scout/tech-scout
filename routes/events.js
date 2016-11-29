@@ -23,12 +23,12 @@ events.route('/all')
 
 events.route('/:userID')
   .get(db.getEventsForUser, sendJSONresp)
-  .post(auth.authorize, db.attend, sendJSONresp);
+  .post(auth.authorize, db.attend, sendJSONresp)
+  .delete(db.deleteEvent, sendJSONresp);
 
 events.route('/')
   .get(db.getAllEvents, sendJSONresp)
-  .post(db.addEvent, sendJSONresp)
-  .delete(db.deleteEvent, sendJSONresp);
+  .post(db.addEvent, sendJSONresp);
 
 // export this so it is available to server.js
 module.exports = events;
