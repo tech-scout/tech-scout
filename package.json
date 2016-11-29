@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "7.0.0"
+  },
   "private": true,
   "scripts": {
     "clean": "rm -rf dist && rm -rf node_modules",
