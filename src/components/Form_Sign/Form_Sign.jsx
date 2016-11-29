@@ -34,7 +34,10 @@ export default class Form_Sign extends Component {
     })
     .then(r => r.json())
     .then((data) => {
-      localStorage.setItem('techScoutToken', data);
+      localStorage.setItem('techScoutToken', data.token);
+    })
+    .then(() => {
+      window.location.href = './profile';
     });
   }
 

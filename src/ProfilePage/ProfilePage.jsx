@@ -4,14 +4,13 @@ import Nav from '../components/Nav/Nav.jsx';
 import Footer from '../components/Footer/Footer.jsx';
 import EventList from '../components/EventList/EventList.jsx'
 import AjaxAdapter from '../helpers/AjaxAdapter';
-const jwt = require('jsonwebtoken');
 
 export default class ProfilePage extends Component {
   constructor(props) {
     super();
 
     this.state = {
-      currentUser: (jwt.decode(localStorage.getItem('techScoutToken')).username),
+      currentUser: {},
       events: {},
       following: {},
       followers: {},
@@ -22,6 +21,7 @@ export default class ProfilePage extends Component {
   componentDidMount() {
     AjaxAdapter.getEventsForUser()
       .then((allEvents) => {
+        console.log(allEvents);
         this.setState({ events: allEvents });
       }
     )
