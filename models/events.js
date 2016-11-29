@@ -23,7 +23,7 @@ console.log('events...', events)
   },
 
   getEventsForInterest(req, res, next) {
-    db.any(`SELECT * from events LEFT JOIN eventInterestEdge ON events.id = eventInterestEdge.event WHERE eventInterestEdge.interest = ${req.body.interest}`)
+    db.one(`SELECT * from events LEFT JOIN eventInterestEdge ON events.id = eventInterestEdge.event WHERE eventInterestEdge.interest = ${req.body.interest}`)
       .then((events) => {
         res.rows = events;
         next();
@@ -72,16 +72,20 @@ console.log('events...', events)
   /* creates a new event, returns the newly created record */
   addEvent(req, res, next) {
     console.log('===addEvent===',req.body);
-    db.one(
-      'INSERT INTO events (name, description, img_url) VALUES ($/title/, $/desc/, $/url/) returning *;',
-      req.body
-      )
+    db.any(
+        `INSERT INTO events (name, description, img_url) VALUES ($/name/, $/desc/, $/img_url/) returning *;`, req.body)
       .then((event) => {
         console.log('ADDED TASK SUCCESSFUL');
         res.rows = event;
         next();
       })
-      .catch(error => next(error));
+      .catch((error) => {
+console.log('about to throw error');
+        next(error);
+console.log('just threw error');
+
+console.log(error);
+      });
   },
 
   attend(req, res, next) {
@@ -95,26 +99,26 @@ console.log('events...', events)
   },
 
   /* PUT /events/:eventID */
-  updateEvent(req, res, next) {
-    // tID is invented here
-    req.body.tID = Number.parseInt(req.params.eventID);
-    req.body.completed = !!req.body.completed;
-
-    db.one(
-      `UPDATE event SET
-      name = $/name/,
-      description = $/description/,
-      completed = $/completed/,
-      WHERE id = $/tID/
-      returning *;
-      `, req.body)
-      .then((event) => {
-        console.log('ADDED UPDATED SUCCESSFULLY');
-        res.rows = event;
-        next();
-      })
-      .catch(error => next(error));
-  },
+  // updateEvent(req, res, next) {
+  //   // tID is invented here
+  //   req.body.tID = Number.parseInt(req.params.eventID);
+  //   req.body.completed = !!req.body.completed;
+  //
+  //   db.one(
+  //     `UPDATE event SET
+  //     name = $/name/,
+  //     description = $/description/,
+  //     completed = $/completed/,
+  //     WHERE id = $/tID/
+  //     returning *;
+  //     `, req.body)
+  //     .then((event) => {
+  //       console.log('ADDED UPDATED SUCCESSFULLY');
+  //       res.rows = event;
+  //       next();
+  //     })
+  //     .catch(error => next(error));
+  // },
 
   /* DELETE /events/:id */
   deleteEvent(req, res, next) {
