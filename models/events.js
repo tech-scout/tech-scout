@@ -7,6 +7,7 @@ module.exports = {
     db.any('SELECT * from events;')
       .then((events) => {
         res.rows = events;
+console.log('events...', events)
         next();
       })
       .catch(error => next(error));
@@ -31,7 +32,7 @@ module.exports = {
   },
 
   getEventsForUser(req, res, next) {
-    db.any(`SELECT * from events LEFT JOIN attendance ON attendance.event = events.id WHERE attendance.user = ${req.body.user.id}`)
+    db.any(`SELECT * from events LEFT JOIN attendance ON attendance.event = events.id WHERE attendance.user = ${req.params.userID}`)
       .then((events) => {
         res.rows = events;
         next();

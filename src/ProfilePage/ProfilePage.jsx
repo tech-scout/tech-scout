@@ -10,13 +10,16 @@ export default class ProfilePage extends Component {
     super();
 
     this.state = {
+      currentUser: this.props.user,
       events: {},
+      following: {},
+      followers: {},
     };
   }
 
   // executed once the ProfilePage component mounts
   componentDidMount() {
-    AjaxAdapter.getAllEvents()
+    AjaxAdapter.getEventsForUser()
       .then((allEvents) => {
         this.setState({ events: allEvents });
       }
@@ -34,15 +37,11 @@ export default class ProfilePage extends Component {
         <div className="userInfo">user info</div>
         <div className="interests"> interests
         </div>
-        <div id="bottomPage">
         <div className="friendList"> friends list
         </div>
-        <div className="users_events"> user events
-          <EventList
+         <EventList
             events={this.state.events}
           />
-        </div>
-        </div>
         <Footer />
       </div>
       )
