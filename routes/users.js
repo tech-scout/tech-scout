@@ -18,11 +18,11 @@ const sendJSONresp = (req, res) => res.json({token: res.token, body: res.rows});
 users.route('/')
   .post(db.createUser, auth.createToken, (req, res) => {
     // console.log(res.token);
-    res.json({token: res.token});
+    res.json({token: res.token, user: res.user});
   })
   .get(db.getUser, auth.createToken, (req, res) => {
     // console.log(res.token);
-    res.json({token: res.token});
+    res.json({token: res.token, user: res.user});
   });
   // .get((req, res) => res.send(200));
 

@@ -24,7 +24,7 @@ export default class Form_Log extends Component {
     fetch(`/api/users?username=${this.state.username}&password=${this.state.password}`)
     .then(r => r.json())
     .then((data) => {
-      localStorage.setItem('techScoutToken', data);
+      localStorage.setItem('techScoutToken', data[token]);
     });
   }
   render(){
