@@ -7,7 +7,6 @@ module.exports = {
     db.any('SELECT * from events;')
       .then((events) => {
         res.rows = events;
-console.log('events...', events)
         next();
       })
       .catch(error => next(error));
@@ -80,11 +79,7 @@ console.log('events...', events)
         next();
       })
       .catch((error) => {
-console.log('about to throw error');
         next(error);
-console.log('just threw error');
-
-console.log(error);
       });
   },
 
