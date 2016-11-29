@@ -4,13 +4,14 @@ import Nav from '../components/Nav/Nav.jsx';
 import Footer from '../components/Footer/Footer.jsx';
 import EventList from '../components/EventList/EventList.jsx'
 import AjaxAdapter from '../helpers/AjaxAdapter';
+const jwt = require('jsonwebtoken');
 
 export default class ProfilePage extends Component {
   constructor(props) {
     super();
 
     this.state = {
-      currentUser: this.props.user,
+      currentUser: (jwt.decode(localStorage.getItem('techScoutToken')).username),
       events: {},
       following: {},
       followers: {},
